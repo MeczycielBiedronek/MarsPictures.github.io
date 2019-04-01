@@ -114,10 +114,11 @@ h3 > span{
     top: 200px;
 }
 .loader {
+    padding-top: 20px ;
     display: block;
     position: absolute;
-    top: 30%;
-    left: 30%;
+    top: 40%;
+    left: 20%;
     text-align: center;
 }
 .lds-ripple {
