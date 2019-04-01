@@ -20,10 +20,13 @@ let prepDiv = (i, j, k, img_src, l, c) => {
 submitDate.addEventListener('click', (event)=>{
     event.preventDefault();
     json_place.innerHTML='<div class="loader">Receiving pictures from Mars <br><br><div class="lds-ripple"><div></div><div></div></div></div>';
+    // Date picker
 let d = day.value
 let m = month.value
 let y = year.value
  console.log('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=' + y + '-' + m + '-' + d + '&api_key=' + myAPIkey)
+
+ // API call
     fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=' + y + '-' + m + '-' + d + '&api_key=' + myAPIkey)
     .then(res => res.json())
 
@@ -41,6 +44,8 @@ let y = year.value
                             if(lvl1.length === 0){
                                 json_place.innerHTML="No pictures from that date <br>Sorry :(";
                             }else{
+
+                                // Displays pictures with camera name
                                 for (let i = 0; i < lvl1.length; i++) {
                                     let lvl2 = lvl1[i];
                                     let img_src = lvl2['img_src'];
@@ -49,6 +54,8 @@ let y = year.value
 
                                    // console.log(cameraName)
                             //// build  <a> and div
+
+                            // adding controllers (next prev)
                                     if(i === 0){
                                         let j = lvl1.length-1;
                                         let k = i+1;
